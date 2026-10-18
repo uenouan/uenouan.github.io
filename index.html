@@ -2,24 +2,69 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>My Notes</title>
+  <title>My Lifelog & Notes</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <!-- Vue.jsベースの綺麗なデフォルトテーマを読み込み -->
+
+  <!-- ★ テーマ（好みに応じて vue.css, dark.css, pure.css などに変更可能） -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  
+  <!-- ★ プラグイン用スタイル（通知バナー等） -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/light.css">
 </head>
 <body>
   <div id="app"></div>
+
   <script>
     window.$docsify = {
-      name: 'My Notes',
-      repo: '', // 自身のGitHubリポジトリURLを書いてもOK
-      loadSidebar: true, // サイドバーを有効にする場合
-      auto2top: true    // ページ遷移時に最上部にスクロール
+      // 1. 基本設定
+      name: '📝 My Notes',
+      repo: 'https://github.com/uenouan/uenouan.github.io', // 右上にGitHubリボンを表示
+
+      // 2. ナビゲーション & バナー機能（すべて有効化）
+      loadNavbar: true,    // 右上のナビゲーションバー (_navbar.md)
+      loadSidebar: true,   // 左側のサイドバー (_sidebar.md)
+      subMaxLevel: 3,      // サイドバーに自動表示する記事内見出しの深さ (H2〜H3)
+      coverpage: true,     // カバーページ / 表紙バナー (_coverpage.md)
+      onlyCover: false,    // カバーページを下スクロールでそのまま本文へ繋げる
+      auto2top: true,      // ページ遷移時に自動で最上部にスクロール
+
+      // 3. 全文検索機能 (Search)
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '🔍 全文検索...',
+        noData: '該当するノートが見つかりません',
+        depth: 6
+      },
+
+      // 4. 右側目次プラグイン (TOC) の設定
+      toc: {
+        scope: '.markdown-section',
+        headings: 'h2, h3, h4',
+        title: '目次',
+      },
+
+      // 5. コードブロックのコピーボタンメッセージ
+      copyCode: {
+        buttonText: 'コピー',
+        errorText: 'エラー',
+        successText: 'コピー完了'
+      }
     }
   </script>
-  <!-- docsify本体の読み込み -->
+
+  <!-- Docsify本体 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+
+  <!-- ★ 便利プラグインを一括読み込み -->
+  <!-- 1. 全文検索 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <!-- 2. コードコピーボタン -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <!-- 3. 画像拡大表示 (Zoom) -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <!-- 4. 右側見出し目次 (TOC) -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/docsify-plugin-toc.min.js"></script>
 </body>
 </html>
