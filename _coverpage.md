@@ -6,4 +6,4 @@
 * 高速レンダリング＆簡単アクセス
 
 [始める](#README)
-[GitHub](https://github.com/uenouan/uenouan.github.io)
+// [GitHub](https://github.com/uenouan/uenouan.github.io)
