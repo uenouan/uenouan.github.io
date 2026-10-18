@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>My Notes</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <!-- Vue.jsベースの綺麗なデフォルトテーマを読み込み -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: 'My Notes',
+      repo: '', // 自身のGitHubリポジトリURLを書いてもOK
+      loadSidebar: true, // サイドバーを有効にする場合
+      auto2top: true    // ページ遷移時に最上部にスクロール
+    }
+  </script>
+  <!-- docsify本体の読み込み -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+</body>
+</html>
