@@ -17,7 +17,20 @@
       background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
                   url('_media/bg.jpg') center center / cover no-repeat !important;
     }
-  </style>
+    /* ▼ 追加：スクロールダウン時もサイドバー分のマージンを強制的に維持する */
+    @media screen and (min-width: 768px) {
+      .content {
+        margin-left: 300px !important; /* Docsifyの標準サイドバー幅 */
+      }
+    }
+
+    /* 本文自体の最大幅やパディングの調整 */
+    .markdown-section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+</style>
 </head>
 <body>
   <div id="app"></div>
