@@ -1,6 +1,6 @@
 * [ホーム](README.md)
 
-* 活動記録＆メモ
+* 農業関連
   * [2026年](content/agri/2026/README.md)
     * [10月](content/agri/2026/10/README.md)
 
