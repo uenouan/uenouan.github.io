@@ -1,7 +1,8 @@
-* 🏠 [ホーム](README.md)
+* [ホーム](README.md)
 
-* 📝 ライフログ
-  * [10月の記録](content/CurryRecipe.md)
+* 活動記録＆メモ
+  * 2026年
+    * 10月(content/agri/CurryRecipe.md)
 
-* 💻 技術メモ
-  * [WSLとGitの設定](content/tech/wsl.md)
+* その他
+  * このサイト(content/other/thissite.md)
