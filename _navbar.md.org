@@ -1,0 +1,6 @@
+* リンク
+  * [GitHub Pages](https://github.com)
+  * [Docsify公式](https://docsify.js.org)
+
+* カテゴリ
+  * [活動記録＆メモ](content/log/README.md)
