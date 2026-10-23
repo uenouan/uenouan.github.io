@@ -17,19 +17,6 @@
       background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
                   url('_media/bg.jpg') center center / cover no-repeat !important;
     }
-    /* ▼ 追加：スクロールダウン時もサイドバー分のマージンを強制的に維持する */
-    @media screen and (min-width: 768px) {
-      .content {
-        margin-left: 300px !important; /* Docsifyの標準サイドバー幅 */
-      }
-    }
-
-    /* 本文自体の最大幅やパディングの調整 */
-    .markdown-section {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 30px;
-    }
 </style>
 </head>
 <body>
@@ -46,7 +33,7 @@
       loadSidebar: true,   // 左側のサイドバー (_sidebar.md)
       subMaxLevel: 3,      // サイドバーに自動表示する記事内見出しの深さ (H2〜H3)
       coverpage: true,     // カバーページ / 表紙バナー (_coverpage.md)
-      onlyCover: false,    // カバーページを下スクロールでそのまま本文へ繋げる
+      onlyCover: true,    // カバーページを下スクロールでそのまま本文へ繋げる
       auto2top: true,      // ページ遷移時に自動で最上部にスクロール
 
       // 3. 全文検索機能 (Search)
