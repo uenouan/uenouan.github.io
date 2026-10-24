@@ -1,2 +1,2 @@
 ## 技術メモ
-- [このサイトの構成](thissite.md)
+- [このサイトの構成](content/tech/thissite.md)
