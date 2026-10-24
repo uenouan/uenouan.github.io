@@ -1,5 +1,7 @@
 このサイトはGithub Pagesで公開している。
+
 日々のメンテナンスはVS Codeを使い、Markdown形式で記事を書いてGitにプッシュしてアップデートする。
+
 MarkdownをHTMLに変換する仕組みにはDocsifyを使用している。（Github Pages標準のJekyllは少し面倒なので使っていない）
 
 以下はGeminiにまとめてもらった備忘録。
