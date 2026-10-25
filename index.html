@@ -32,27 +32,17 @@
 
     :root {
       /* サイト全体のデフォルトフォントを指定 */
-      /* --base-font-family: 'Noto Sans JP', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto; */
-      --base-font-family: 'M PLUS Rounded 1c', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;      
+      --base-font-family: 'Noto Sans JP', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+      /* --base-font-family: 'M PLUS Rounded 1c', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;       */
     }
 
     html, body, article, main, section, div, p, span, li, a, h1, h2, h3, h4, h5, h6, .markdown-section {
       font-family: var(--base-font-family) !important;
-    }
-
-    /* 本文セクション内のフォントを確実に適用したい場合 */
-    .markdown-section {
-      font-family: var(--base-font-family) !important;
-    }
-
-    /* 見出し（H1〜H6）のフォントも統一したい場合 */
-    .markdown-section h1,
-    .markdown-section h2,
-    .markdown-section h3,
-    .markdown-section h4,
-    .markdown-section h5,
-    .markdown-section h6 {
-      font-family: var(--base-font-family) !important;
+      color: #ffffff !important;
+      text-decoration: none !important;
+      border-bottom: none !important;
+      box-shadow: none !important;
+      background-image: none !important;
     }
 
     /* カバーページ */
@@ -64,12 +54,12 @@
       /* font-family: 'Noto Sans JP', sans-serif !important; */
       /* font-family: 'Sawarabi Mincho', serif; */
       /* font-family: 'M PLUS Rounded 1c', sans-serif; */
-      font-family: var(--base-font-family) !important;
-      color: #ffffff !important;
-      text-decoration: none !important;
-      border-bottom: none !important;
-      box-shadow: none !important;
-      background-image: none !important;
+      /* font-family: var(--base-font-family) !important; */
+      /* color: #ffffff !important; */
+      /* text-decoration: none !important; */
+      /* border-bottom: none !important; */
+      /* box-shadow: none !important; */
+      /* background-image: none !important; */
     }
 
     section.cover h1 {
