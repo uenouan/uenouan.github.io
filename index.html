@@ -25,21 +25,8 @@
 <style>
     /* カバーページの背景画像を不透明度（透過）付きで表示する場合 */
     .cover.show {
-      /* background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),  */
-                  /* url('media/cover.png') center center / cover no-repeat !important; */
-    }
-
-    :root {
-      --cover-bg         : url('media/cover.png');
-      --cover-bg-overlay : rgba(0, 0, 0, 0.5);
-      --cover-color      : #fff;
-      --cover-title-color: var(--theme-color);
-      --cover-title-font : 600 var(--font-size-xxxl) var(--font-family);
-    }
-
-    /* カバーページ全体のフォントを強制的に変更したい場合 */
-    section.cover {
-      /* font-family: 'Noto Sans JP', sans-serif !important; */
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), 
+                  url('media/cover.png') center center / cover no-repeat !important;
     }
 
     /* 2. カバーページ内のリンクや見出しも白くしたい場合 */
