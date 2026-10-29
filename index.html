@@ -3,22 +3,19 @@
 
 <head>
   <meta charset="utf-8">
-  <title>My Lifelog & Notes</title>
+  <title>兵庫県で農家になる</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
   <!-- ★ テーマ（好みに応じて vue.css, dark.css, pure.css などに変更可能） -->
   <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"> -->
-  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5/lib/themes/vue.css"> -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5/dist/themes/core.min.css">
-
-  <!-- ★ プラグイン用スタイル（通知バナー等） -->
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/light.css">
 
   <!-- 1. Google Fonts から使いたいフォントを読み込む（例: Noto Sans JP） -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
@@ -34,16 +31,28 @@
     :root {
       /* サイト全体のデフォルトフォントを指定 */
       /* --base-font-family: 'Noto Sans JP', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto; */
-      /* --base-font-family: 'M PLUS Rounded 1c', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;       */
-      --base-font-family: 'BIZ UDPGothic', sans-serif !important;
+      /* --base-font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif; */
+      /* --base-font-family: 'M PLUS Rounded 1c', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto; */
+      --base-font-family: 'BIZ UDPGothic', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
     }
 
     html, body, article, main, section, div, p, span, li, a, h1, h2, h3, h4, h5, h6, .markdown-section {
-      font-family: var(--base-font-family) !important;
+      /* font-family: var(--base-font-family); */
       text-decoration: none !important;
       border-bottom: none !important;
       box-shadow: none !important;
       background-image: none !important;
+    }
+
+    h1, h2 {
+      font-family: 'Noto Sans JP', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
+      /* font-family: 'BIZ UDPGothic', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto; */
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    .markdown-section {
+      font-family: 'BIZ UDPGothic', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;
     }
 
     /* カバーページ */
@@ -52,11 +61,12 @@
     section.cover h3,
     section.cover p,
     section.cover a {
-      /* font-family: var(--base-font-family) !important; */
+      font-family: var(--base-font-family) !important;
       color: #ffffff !important;
     }
 
-    section.cover h1 {
+    section.cover h1,
+    section.cover h2 {
       font-weight: 700;
     }
   </style>
@@ -67,56 +77,26 @@
 
   <script>
     window.$docsify = {
-      // 1. 基本設定
-      //name: '📝 My Notes',
+      // name: 'My Notes',
       // repo: 'https://github.com/uenouan/uenouan.github.io', // 右上にGitHubリボンを表示
-
-      // 2. ナビゲーション & バナー機能（すべて有効化）
       loadNavbar: true,    // 右上のナビゲーションバー (_navbar.md)
       loadSidebar: true,   // 左側のサイドバー (_sidebar.md)
       subMaxLevel: 0,      // サイドバーに自動表示する記事内見出しの深さ (H2〜H3)
       coverpage: true,     // カバーページ / 表紙バナー (_coverpage.md)
-      onlyCover: false,    // カバーページを下スクロールでそのまま本文へ繋げる
+      onlyCover: false,    // カバーページから本文にスクロールしない
       auto2top: true,      // ページ遷移時に自動で最上部にスクロール
 
-      // 3. 全文検索機能 (Search)
-      search: {
-        maxAge: 86400000,
-        paths: 'auto',
-        // placeholder: '🔍 全文検索...',
-        placeholder: '全文検索...',
-        noData: '該当するノートが見つかりません',
-        depth: 6
-      },
-
-      // 4. 右側目次プラグイン (TOC) の設定
-      toc: {
-        scope: '.markdown-section',
-        headings: 'h2, h3, h4',
-        title: '目次',
-      },
-
-      // 5. コードブロックのコピーボタンメッセージ
       copyCode: {
-        buttonText: 'コピー',
-        errorText: 'エラー',
-        successText: 'コピー完了'
+        buttonText: 'Copy',
+        errorText: 'Error',
+        successText: 'Copied!'
       }
     }
   </script>
 
-  <!-- Docsify本体 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@5"></script>
-
-  <!-- ★ 便利プラグインを一括読み込み -->
-  <!-- 1. 全文検索 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <!-- 2. コードコピーボタン -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@5/dist/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-  <!-- 3. 画像拡大表示 (Zoom) -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-  <!-- 4. 右側見出し目次 (TOC) -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/docsify-plugin-toc.min.js"></script>
+
 </body>
 
 </html>

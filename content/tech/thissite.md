@@ -1,16 +1,14 @@
-このサイトはGithub Pagesで公開している。
-
-日々のメンテナンスはVS Codeを使い、Markdown形式で記事を書いてGitにプッシュしてアップデートする。
-
-MarkdownをHTMLに変換する仕組みにはDocsifyを使用している。（Github Pages標準のJekyllは少し面倒なので使っていない）
-
+このサイトはGithub Pagesで公開している。  
+日々のメンテナンスはVS Codeを使い、Markdown形式で記事を書いてGitにプッシュしてアップデートする。  
+MarkdownをHTMLに変換する仕組みにはDocsifyを使用している。（Github Pages標準のJekyllは少し面倒なので使っていない）  
 以下はGeminiにまとめてもらった備忘録。
 
 ---
+<!-- toc -->
 
-# docsify ＋ GitHub Pages 導入ガイド
+# Docsify ＋ GitHub Pages 導入ガイド
 
-VS Code（WSL）とGit環境をベースに、複雑なビルド（SSG）なしでMarkdownをブラウザで綺麗に閲覧・公開するための手順です。
+VS CodeとGit環境をベースに、複雑なビルド（SSG）なしでMarkdownをブラウザで綺麗に閲覧・公開するための手順です。
 
 ## 1. 全体像とメリット
 
@@ -32,9 +30,10 @@ my-repo/
 ├── .nojekyll           # GitHub PagesのJekyll処理を無効化する空ファイル
 ├── README.md           # トップページ（ホーム）
 └── content/            # サブフォルダ（必要に応じてMarkdownを配置）
-    └── log/
-        └── 2026-10.md
-
+    ├── agri/
+    |   └── xxxxx.md
+    └── other/
+        └── xxxxx.md
 ```
 
 > **⚠️ 重要（ハマりポイント）**
@@ -51,52 +50,88 @@ my-repo/
 ```html
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
-  <meta charset="UTF-8">
-  <title>My Notes</title>
+  <meta charset="utf-8">
+  <title>兵庫県で農家になる</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/light.css">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"> -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@5/dist/themes/core.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* カバーページの背景画像を不透明度（透過）付きで表示 */
+    .cover.show {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)),
+        url('media/cover.png') center center / cover no-repeat !important;
+    }
+
+    /* サイト全体のデフォルトフォントを指定 */
+    :root {
+      /* --base-font-family: 'Noto Sans JP', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto; */
+      /* --base-font-family: 'M PLUS Rounded 1c', sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto;       */
+      --base-font-family: 'BIZ UDPGothic', sans-serif !important;
+    }
+
+    html, body, article, main, section, div, p, span, li, a, h1, h2, h3, h4, h5, h6, .markdown-section {
+      font-family: var(--base-font-family) !important;
+      text-decoration: none !important;
+      border-bottom: none !important;
+      box-shadow: none !important;
+      background-image: none !important;
+    }
+
+    /* カバーページ */
+    section.cover h1,
+    section.cover h2,
+    section.cover h3,
+    section.cover p,
+    section.cover a {
+      /* font-family: var(--base-font-family) !important; */
+      color: #ffffff !important;
+    }
+
+    section.cover h1 {
+      font-weight: 700;
+    }
+  </style>
 </head>
+
 <body>
   <div id="app"></div>
 
   <script>
     window.$docsify = {
-      name: '📝 My Notes',
-      repo: 'https://github.com/ユーザー名/リポジトリ名',
+      // name: 'My Notes',
+      // repo: 'https://github.com/__USER__/__REPOSITORY__', // 右上にGitHubリボンを表示
       loadNavbar: true,    // 右上のナビゲーションバー (_navbar.md)
       loadSidebar: true,   // 左側のサイドバー (_sidebar.md)
-      subMaxLevel: 3,      // サイドバーに自動表示する記事内見出しの深さ (H2〜H3)
+      subMaxLevel: 0,      // サイドバーに自動表示する記事内見出しの深さ (H2〜H3)
       coverpage: true,     // カバーページ / 表紙バナー (_coverpage.md)
-      onlyCover: false,    // カバーページを下スクロールでそのまま本文へ繋げる
+      onlyCover: false,    // カバーページから本文にスクロールしない
       auto2top: true,      // ページ遷移時に自動で最上部にスクロール
-      search: {
-        maxAge: 86400000,
-        paths: 'auto',
-        placeholder: '🔍 全文検索...',
-        noData: '該当するノートが見つかりません',
-        depth: 6
-      },
-      toc: {
-        scope: '.markdown-section',
-        headings: 'h2, h3, h4',
-        title: '目次',
-      },
+
       copyCode: {
-        buttonText: 'コピー',
-        errorText: 'エラー',
-        successText: 'コピー完了'
+        buttonText: 'Copy',
+        errorText: 'Error',
+        successText: 'Copied!'
       }
     }
   </script>
 
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@5/dist/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify-plugin-toc@1.3.1/dist/docsify-plugin-toc.min.js"></script>
+
 </body>
 </html>
 
@@ -107,10 +142,10 @@ my-repo/
 リポジトリのルートに作成し、表示したいファイルやフォルダのリンクを記述します。
 
 ```markdown
-* 🏠 [ホーム](README.md)
+* [ホーム](README.md)
 
-* 📝 ライフログ
-  * [10月の記録](content/log/2026-10.md)
+* 農業記録
+  * [10月](content/agri/2026-10.md)
 
 ```
 
@@ -119,7 +154,7 @@ my-repo/
 リポジトリのルートに作成します。
 
 ```markdown
-* 🚀 リンク
+* リンク
   * [GitHub](https://github.com)
 
 ```
